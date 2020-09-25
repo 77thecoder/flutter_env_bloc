@@ -1,16 +1,58 @@
 # env
 
-A new Flutter project.
+Пример работы со средами окружения.  
+Различные конфиги для среды разработки, тестирования, продакшна.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+В папке lib создаем файлы main_{env}.dart для каждой среды.  
 
-A few resources to get you started if this is your first Flutter project:
+Например, у нас три среды: dev, test, prod.  
+Необходимо создать 3 файла: main_dev.dart, main_test.dart, main_prod.dart.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Все три файла по содержанию одинаковые, имеют в своей структуре только функцию main().  
+В которой вызываем функцию mainCommon, которая является входной точкой нашего приложения.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Конфиги храним в виде JSON в корневой папке config:
+
+app_config_dev.json  
+{
+  "env": "dev",
+  "title": "DEV environment",
+  "counter": 2
+}
+
+В pubspec.yaml подключаем пакет flutter_flavor: ^1.0.1+1
+
+А также добавляем ресурс config  
+
+assets:  
+    - config/
+    
+Для андроида необходимо настроить сборку.
+
+Файл android/app/build.gradle  
+Ниже строки defaultConfig пишем
+
+    flavorDimensions "env"
+
+    productFlavors {
+        dev {
+            dimension "env"
+            resValue "string", "app_name", "DEV"
+            applicationId "com.example.dev"
+            versionNameSuffix "-dev"
+        }
+
+        prod {
+            dimension "env"
+            resValue "string", "app_name", "PROD"
+            applicationId "com.example.prod"
+        }
+    }
+
+Запуск приложения с нужным окружением, напримере запуск в режиме prod
+
+    flutter run --flavor prod --target=lib/main_prod.dart
+
+В режимах dev, test в приложении слева снизу выводится банер
