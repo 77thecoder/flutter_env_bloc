@@ -23,10 +23,16 @@ class ConfigReader {
         _environment = FlavorEnvironment.PROD;
         _name = 'PROD';
         break;
+      case 'test':
+        _environment = FlavorEnvironment.TEST;
+        _name = 'TEST';
+        break;
       default:
         _environment = FlavorEnvironment.DEV;
         _name = 'DEV';
     }
+
+    _environment = FlavorEnvironment.TEST;
 
     FlavorConfig(
       environment: _environment,

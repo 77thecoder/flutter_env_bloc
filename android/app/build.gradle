@@ -45,18 +45,25 @@ android {
         versionName flutterVersionName
     }
 
-    flavorDimensions "env"
+    flavorDimensions "env_bloc"
 
     productFlavors {
         dev {
-            dimension "env"
+            dimension "env_bloc"
             resValue "string", "app_name", "DEV"
             applicationId "com.example.dev"
             versionNameSuffix "-dev"
         }
 
+        staging {
+            dimension "env_bloc"
+            resValue "string", "app_name", "TEST"
+            applicationId "com.example.test"
+            versionNameSuffix "-test"
+        }
+
         prod {
-            dimension "env"
+            dimension "env_bloc"
             resValue "string", "app_name", "PROD"
             applicationId "com.example.prod"
         }
