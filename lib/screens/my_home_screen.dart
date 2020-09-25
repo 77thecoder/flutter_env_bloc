@@ -1,4 +1,4 @@
-import 'package:env/second_page.dart';
+import 'file:///F:/www/flutter/env_bloc/lib/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
 

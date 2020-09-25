@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
-import 'my_home_page.dart';
+import 'screens/screens.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
