@@ -1,5 +1,6 @@
 {
   "env": "dev",
   "title": "Timer (DEV)",
-  "duration": 60
+  "duration": 60,
+  "service": "two"
 }
