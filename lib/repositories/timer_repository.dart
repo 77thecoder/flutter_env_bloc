@@ -3,11 +3,10 @@ import 'package:flutter/cupertino.dart';
 
 class TimerRepository {
   final TickerDataProvider tickerData = new TickerDataProvider();
-  int ticks;
 
-  TimerRepository({@required this.ticks});
+  TimerRepository();
 
   tick({int ticks}) {
-    return tickerData.tick(ticks: ticks);
+    return tickerData.tick(ticks: 60);
   }
 }
