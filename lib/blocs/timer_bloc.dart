@@ -3,13 +3,14 @@ import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:env_bloc/dataproviders/ticker_dataprovider.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 
 part 'timer_event.dart';
 part 'timer_state.dart';
 
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
   final TickerDataProvider _ticker;
-  static const int _duration = 60;
+  static final int _duration = FlavorConfig.instance.variables['duration'];
 
   StreamSubscription<int> _tickerSubscription;
 

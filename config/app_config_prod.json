@@ -1,5 +1,5 @@
 {
   "env": "prod",
-  "title": "PROD environment",
-  "counter": 200
+  "title": "Timer (PROD)",
+  "duration": 200
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:env_bloc/blocs/timer_bloc.dart';
 import 'package:env_bloc/widgets/widgets.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 
 class Timer extends StatelessWidget {
   static const TextStyle timerTextStyle = TextStyle(
@@ -12,7 +13,7 @@ class Timer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Flutter Timer')),
+      appBar: AppBar(title: Text(FlavorConfig.instance.variables['title'])),
       body: Stack(
         children: <Widget>[
           Background(),

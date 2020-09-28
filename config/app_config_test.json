@@ -1,5 +1,5 @@
 {
   "env": "test",
-  "title": "TEST environment",
-  "counter": 666
+  "title": "Timer (TEST)",
+  "duration": 666
 }
