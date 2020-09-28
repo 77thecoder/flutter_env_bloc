@@ -2,19 +2,19 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:env_bloc/dataproviders/ticker_dataprovider.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
+import 'package:env_bloc/repositories/repositories.dart';
 
 part 'timer_event.dart';
 part 'timer_state.dart';
 
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
-  final TickerDataProvider _ticker;
+  final TimerRepository _ticker;
   static final int _duration = FlavorConfig.instance.variables['duration'];
 
   StreamSubscription<int> _tickerSubscription;
 
-  TimerBloc({@required TickerDataProvider ticker})
+  TimerBloc({@required TimerRepository ticker})
       : assert(ticker != null),
         _ticker = ticker,
         super(TimerInitial(_duration));

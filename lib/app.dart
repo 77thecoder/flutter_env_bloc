@@ -1,3 +1,4 @@
+import 'package:env_bloc/repositories/repositories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         ),
         title: 'Flutter Timer',
         home: BlocProvider(
-          create: (context) => TimerBloc(ticker: TickerDataProvider()),
+          create: (context) => TimerBloc(ticker: TimerRepository(ticks: FlavorConfig.instance.variables['duration'])),
           child: Timer(),
         ),
       )
