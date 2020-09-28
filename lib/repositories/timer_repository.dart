@@ -7,6 +7,6 @@ class TimerRepository {
   TimerRepository();
 
   tick({int ticks}) {
-    return tickerData.tick(ticks: 60);
+    return tickerData.tick(ticks: ticks);
   }
 }
